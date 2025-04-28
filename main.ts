@@ -43,6 +43,7 @@ const make_todo = (row: todo, index: number) => {
     if (res.ok === true) {
       item_span.classList.toggle("text-red-500");
     }
+    sort_todos();
     notify(res.message);
   });
   item.appendChild(item_checkbox);
@@ -64,7 +65,9 @@ const make_todo = (row: todo, index: number) => {
   return item;
 };
 
-const sort_todos = (todos: HTMLOListElement) => {
+const sort_todos = (todos: HTMLOListElement = null) => {
+  if (todos === null || todos === undefined)
+    todos = document.querySelector(".todos");
   const sorted = Array.from(todos.children).sort(
     (a, b) =>
       a.querySelector("input").checked - b.querySelector("input").checked,
