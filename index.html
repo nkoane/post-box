@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>PG Lite Browser</title>
+    <style>
+      .todo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5em;
+
+        span {
+          flex-grow: 1;
+        }
+        button {
+          font-size: 0.8em;
+          padding: 0.2em 0.4em;
+          border-radius: 0.2em;
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gray-100 h-screen w-full flex justify-center place-items-center"
+  >
+    <main
+      class="p-6 min-h-[50%] flex gap-4 flex-col rounded bg-white shadow-md w-[90%]"
+    >
+      <header
+        class="border-b mb-4 pb-2 border-red-200 items-center flex justify-between"
+      >
+        <h1 class="font-bold">BROW:R</h1>
+        <div
+          id="notify"
+          class="text-red-500 text-sm transition-all opacity-0 duration-1000"
+        >
+          ?
+        </div>
+      </header>
+      <section class="flex items-start gap-4 grow">
+        <dl id="things" class="grow">
+          <dt>Things</dt>
+          <dd>
+            <ol class="todos space-y-2"></ol>
+          </dd>
+        </dl>
+        <form
+          id="task-master"
+          method="post"
+          class="bg-yellow-50 shrink-0 p-4 w-1/2 flex gap-2"
+        >
+          <input
+            placeholder="what do you want to do"
+            type="text"
+            name="task"
+            class="w-full rounded p-2 py-2 bg-white block border"
+          />
+          <button
+            type="submit"
+            class="font-bold ml-auto bg-blue-500 text-white p-2 px-3 text-sm rounded"
+          >
+            add
+          </button>
+        </form>
+      </section>
+      <footer class="text-xs border-t mt-4 pt-2 text-right text-gray-500">
+        <p>2025 &copy; ETSPx</p>
+      </footer>
+    </main>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
